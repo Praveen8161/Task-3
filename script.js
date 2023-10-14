@@ -1,12 +1,16 @@
 
+//Main elements
 let container = document.querySelector(".container");
 
+//URL for API 
 let URL = "https://6523738ef43b179384156c7e.mockapi.io/student";
 let options = {"method":"GET",
     headers:{
         "Content-Type":"application/json"
 }};
 
+//Creating a each card
+//using the data from website creating a card
 function card(val){
     let card = document.createElement("div");
     card.className = "card";
@@ -21,6 +25,8 @@ function card(val){
     container.appendChild(card);
 }
 
+//Function for Promise API
+//Getting a data from Website
 async function getData(){
     let res = await fetch(URL,options);
     let data = await res.json();
@@ -28,6 +34,6 @@ async function getData(){
         card(val);
     });
 }
-getData();
+getData(); //calling the function with API
 
 
